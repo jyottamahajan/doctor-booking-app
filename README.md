@@ -1,207 +1,261 @@
-# DocBook - Doctor Appointment Booking App
+# DocBook 🩺
 
-A full-stack web application for booking doctor appointments with role-based authentication for doctors and patients.
+### Doctor Appointment Booking Web Application
 
-## Features
+DocBook is a full-stack doctor appointment booking web application that allows patients to discover doctors, book appointments, manage their profiles, and track appointment history. Doctors can manage their profiles, appointments, and patient information through a dedicated dashboard.
 
-### For Patients
-- Search and book appointments with doctors
-- Filter doctors by specialty
-- View appointment history
-- Manage profile information
+---
 
-### For Doctors
-- Dashboard with appointment statistics
-- Manage professional profile
-- View and manage patient appointments
-- Confirm/cancel appointments
+## 🚀 Features
 
-## Tech Stack
+### 👤 For Patients
 
-- **Framework**: Next.js 14 with TypeScript
-- **Styling**: Tailwind CSS
-- **UI Components**: shadcn/ui
-- **State Management**: React Context API
-- **Mock Backend**: JSON Server
-- **Authentication**: Role-based with localStorage
+* Search and discover doctors
+* Filter doctors by specialty
+* Book doctor appointments
+* View appointment history
+* Manage personal profile
+* Responsive user interface
 
-## Quick Setup Guide
+### 👨‍⚕️ For Doctors
 
-1. **Install dependencies**:
-   \`\`\`bash
-   npm install
-   \`\`\`
+* Doctor dashboard with appointment statistics
+* Manage professional profile
+* View patient appointments
+* Confirm or cancel appointments
+* Manage appointment status
 
-2. **Install JSON Server globally** (if not already installed):
-   \`\`\`bash
-   npm install -g json-server
-   \`\`\`
+### 🔐 Authentication
 
-3. **Start the mock backend first** (in one terminal):
-   \`\`\`bash
-   npm run json-server
-   \`\`\`
-   This should show: `Resources: http://localhost:3001/doctors, http://localhost:3001/patients, http://localhost:3001/appointments`
+* Role-based authentication
+* Separate Doctor and Patient experiences
+* Protected routes
+* Form validation
+* Login and registration functionality
 
-4. **Start the Next.js app** (in another terminal):
-   \`\`\`bash
-   npm run dev
-   \`\`\`
+---
 
-5. **Open the app**: Go to http://localhost:3000
+## 🛠️ Tech Stack
 
-## Getting Started
+### Frontend
+
+* Next.js 14
+* TypeScript
+* Tailwind CSS
+* shadcn/ui
+* React Context API
+
+### Backend
+
+* JSON Server
+* REST API
+* Local JSON database
+
+### Other Tools
+
+* React
+* Next.js App Router
+* Responsive UI
+* Toast Notifications
+
+---
+
+## 🏗️ Project Structure
+
+```text
+DocBook/
+│
+├── app/
+│   ├── auth/
+│   ├── doctor/
+│   ├── profile/
+│   ├── appointments/
+│   ├── booking/
+│   └── consultations/
+│
+├── components/
+│   ├── ui/
+│   ├── Navbar.tsx
+│   ├── ProtectedRoute.tsx
+│   └── ...
+│
+├── contexts/
+│   └── AuthContext.tsx
+│
+├── hooks/
+│
+├── lib/
+│   ├── api.ts
+│   └── utils.ts
+│
+├── public/
+│
+├── styles/
+│
+├── db.json
+├── middleware.ts
+├── next.config.mjs
+├── package.json
+└── README.md
+```
+
+---
+
+## ⚙️ Installation & Setup
 
 ### Prerequisites
-- Node.js 18+ installed
-- npm or yarn package manager
 
-### Installation
+* Node.js 18+
+* npm
 
-1. Clone the repository
-2. Install dependencies:
-   \`\`\`bash
-   npm install
-   \`\`\`
+### 1. Clone the repository
 
-3. Start the JSON Server (mock backend):
-   \`\`\`bash
-   npm run json-server
-   \`\`\`
+```bash
+git clone https://github.com/jyottamahajan/doctor-booking-app.git
+cd doctor-booking-app
+```
 
-4. In a new terminal, start the development server:
-   \`\`\`bash
-   npm run dev
-   \`\`\`
+### 2. Install dependencies
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser
+```bash
+npm install
+```
 
-## Default Login Credentials
+### 3. Start JSON Server
+
+Open a terminal and run:
+
+```bash
+npm run json-server
+```
+
+The mock backend will run on:
+
+```text
+http://localhost:3001
+```
+
+### 4. Start the Next.js application
+
+Open another terminal:
+
+```bash
+npm run dev
+```
+
+The application will run on:
+
+```text
+http://localhost:3000
+```
+
+---
+
+## 🔑 Demo Credentials
 
 ### Doctor Account
-- Email: sarah@example.com
-- Password: password123
 
-### Patient Account  
-- Email: john@example.com
-- Password: password123
+```text
+Email: sarah@example.com
+Password: password123
+Role: Doctor
+```
 
-## Project Structure
+### Patient Account
 
-\`\`\`
-├── app/                    # Next.js app directory
-│   ├── auth/              # Authentication pages
-│   ├── doctor/            # Doctor-specific pages
-│   ├── profile/           # Patient profile
-│   └── appointments/      # Patient appointments
-├── components/            # Reusable components
-│   ├── ui/               # shadcn/ui components
-│   ├── Navbar.tsx        # Navigation component
-│   └── ProtectedRoute.tsx # Route protection
-├── contexts/             # React contexts
-│   └── AuthContext.tsx   # Authentication context
-├── lib/                  # Utility functions
-│   └── api.ts           # API functions
-└── db.json              # Mock database
-\`\`\`
+```text
+Email: john@example.com
+Password: password123
+Role: Patient
+```
 
-## API Endpoints
+---
 
-The mock API runs on `http://localhost:3001` with the following endpoints:
+## 🔌 API Endpoints
 
-- `GET /doctors` - Get all doctors
-- `GET /patients` - Get all patients  
-- `GET /appointments` - Get all appointments
-- `POST /doctors` - Create doctor account
-- `POST /patients` - Create patient account
-- `POST /appointments` - Book appointment
-- `PATCH /appointments/:id` - Update appointment status
+The application uses JSON Server as a mock backend.
 
-## Features Implemented
+| Method | Endpoint            | Description        |
+| ------ | ------------------- | ------------------ |
+| GET    | `/doctors`          | Get doctors        |
+| GET    | `/patients`         | Get patients       |
+| GET    | `/appointments`     | Get appointments   |
+| POST   | `/doctors`          | Create doctor      |
+| POST   | `/patients`         | Create patient     |
+| POST   | `/appointments`     | Book appointment   |
+| PATCH  | `/appointments/:id` | Update appointment |
 
-✅ Role-based authentication (Doctor/Patient)  
-✅ Responsive design with dark theme  
-✅ Doctor search and filtering  
-✅ Appointment booking system  
-✅ Profile management  
-✅ Dashboard with statistics  
-✅ Appointment status management  
-✅ Form validation  
-✅ Toast notifications  
+---
 
-## Troubleshooting Login Issues
+## 📱 Main Application Pages
 
-If you're having trouble logging in, follow these steps:
+### Patient
 
-### 1. Check JSON Server Status
-- Make sure JSON Server is running: `npm run json-server`
-- You should see: `JSON Server is running on http://localhost:3001`
-- Visit http://localhost:3001/doctors to verify the server is working
+* Home
+* Find Doctors
+* Doctor Profile
+* Book Appointment
+* Appointments
+* Prescriptions
+* Profile
 
-### 2. Test Connection
-- Visit http://localhost:3000/debug to check server connection
-- This page will show you the server status and available data
+### Doctor
 
-### 3. Use Correct Credentials
+* Doctor Dashboard
+* Appointments
+* Patients
+* Schedule
+* Prescriptions
+* Analytics
+* Professional Profile
 
-**Doctor Login:**
-- Email: `sarah@example.com`
-- Password: `password123`
-- Toggle: Set to "Doctor"
+---
 
-**Patient Login:**
-- Email: `john@example.com` 
-- Password: `password123`
-- Toggle: Set to "Patient"
+## 🎨 UI & Design
 
-### 4. Common Issues
+* Responsive design
+* Modern medical application interface
+* Dark theme support
+* Reusable shadcn/ui components
+* Toast notifications
+* Form validation
+* Protected dashboard routes
 
-**"Cannot connect to server" error:**
-- JSON Server is not running
-- Run `npm run json-server` in a separate terminal
-- Wait for the server to start completely
+---
 
-**"Invalid email or password" error:**
-- Check that you're using the correct credentials above
-- Make sure the Doctor/Patient toggle matches your account type
-- Verify there are no extra spaces in email/password fields
+## 👥 Team Project
 
-**Page not loading:**
-- Clear browser cache and cookies
-- Try refreshing the page
-- Check browser console for errors (F12)
+DocBook was developed as a **collaborative team project**.
 
-### 5. Reset Steps
-If nothing works:
-1. Stop both servers (Ctrl+C)
-2. Delete `node_modules` and run `npm install`
-3. Start JSON Server: `npm run json-server`
-4. In new terminal, start Next.js: `npm run dev`
-5. Try logging in again
+My involvement included:
 
-## Deployment
+* Project coordination
+* Requirement understanding
+* Testing and project review
+* Documentation
+* Portfolio presentation
 
-To deploy this application:
+The core application development was handled collaboratively by the development team.
 
-1. Build the project:
-   \`\`\`bash
-   npm run build
-   \`\`\`
+---
 
-2. Start the production server:
-   \`\`\`bash
-   npm start
-   \`\`\`
+## 🔮 Future Improvements
 
-For the mock API, you'll need to deploy JSON Server separately or replace it with a real backend.
+* Real backend and production database
+* Real-time appointment availability
+* Online payment integration
+* Video consultation integration
+* Email/SMS appointment notifications
+* Doctor verification system
+* Cloud deployment
+* Advanced analytics
 
-## Contributing
+---
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
+## 📄 License
 
-## License
+This project is maintained as a team project for learning, development, and portfolio demonstration purposes.
 
-This project is licensed under the MIT License.
+---
+
+### ❤️ Built with Next.js, TypeScript & Tailwind CSS
